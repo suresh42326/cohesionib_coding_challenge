@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using WebApplication.Repos;
 using WebApplication.Repos.EFCore;
+using WebApplication.Repos.Email;
 
 namespace WebApplication1
 {
@@ -36,6 +37,8 @@ namespace WebApplication1
                 opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
             });
 
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+            services.AddTransient<IMailRepo, MailRepo>();
             services.AddDbContext<WebApplication1Context>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("WebApplication1Context")));
             services.AddScoped<EFCoreServiceRequestRepo>();

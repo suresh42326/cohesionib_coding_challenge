@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WebApplication.Repos;
 using WebApplication.Repos.EFCore;
+using WebApplication.Repos.Email;
 using WebApplication1.Controllers;
 using WebApplication1.Models;
 using Xunit;

@@ -44,7 +44,7 @@ namespace WebApplication1.Controllers
 
         // PUT: api/[controller]/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(string id, TEntity request)
+        public virtual async Task<IActionResult> Put(string id, TEntity request)
         {
             if (id != request.Id)
             {
